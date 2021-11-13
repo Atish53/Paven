@@ -170,6 +170,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ShoppingCartController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -180,6 +181,10 @@
     <Compile Include="Migrations\202111131609217_UserExtensions.cs" />
     <Compile Include="Migrations\202111131609217_UserExtensions.Designer.cs">
       <DependentUpon>202111131609217_UserExtensions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202111131713394_Test.cs" />
+    <Compile Include="Migrations\202111131713394_Test.Designer.cs">
+      <DependentUpon>202111131713394_Test.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -255,6 +260,8 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\ShoppingCart\Index.cshtml" />
+    <Content Include="Views\ShoppingCart\CartSummary.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -278,6 +285,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202111131609217_UserExtensions.resx">
       <DependentUpon>202111131609217_UserExtensions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111131713394_Test.resx">
+      <DependentUpon>202111131713394_Test.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

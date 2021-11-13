@@ -151,7 +151,7 @@ namespace Paven.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, Name = model.Name, Address = model.Address, City = model.City, State = model.State, PostalCode = model.PostalCode, Country = model.Country, PhoneNo = model.PhoneNo };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

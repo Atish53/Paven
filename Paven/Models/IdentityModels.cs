@@ -16,7 +16,7 @@ namespace Paven.Models
         public string State { get; set; }
         public string PostalCode { get; set; }
         public string Country { get; set; }
-        public string PhoneNumber { get; set; }
+        public string PhoneNo { get; set; }
         
         public virtual List<SaleDetail> SaleDetails { get; set; }
 
@@ -32,7 +32,7 @@ namespace Paven.Models
             userIdentity.AddClaim(new Claim("State", State));
             userIdentity.AddClaim(new Claim("PostalCode", PostalCode));
             userIdentity.AddClaim(new Claim("Country", Country));
-            userIdentity.AddClaim(new Claim("Phone", PhoneNumber));
+            userIdentity.AddClaim(new Claim("Phone", PhoneNo));
             
             return userIdentity;
         }

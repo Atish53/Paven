@@ -44,9 +44,9 @@ namespace Paven.Models
             return (claim != null) ? claim.Value : string.Empty;
         }
 
-        public static string GetPhoneNumber(this IIdentity identity)
+        public static string GetPhoneNo(this IIdentity identity)
         {
-            var claim = ((ClaimsIdentity)identity).FindFirst("PhoneNumber");
+            var claim = ((ClaimsIdentity)identity).FindFirst("PhoneNo");
             // Test for null to avoid issues during local testing
             return (claim != null) ? claim.Value : string.Empty;
         }
