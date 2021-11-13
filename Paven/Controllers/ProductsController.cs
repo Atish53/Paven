@@ -8,6 +8,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Paven.Models;
+using PagedList;
 
 namespace Paven.Controllers
 {
@@ -45,8 +46,55 @@ namespace Paven.Controllers
             return View(students.ToList());
         }
 
-            // GET: Products/Details/5
-            public async Task<ActionResult> Details(int? id)
+        // GET: Products 
+        public ActionResult OurProducts(string sortOrder, string currentFilter, string searchString, int? page)
+        {
+            ViewBag.CurrentSort = sortOrder;
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.PriceSortParm = sortOrder == "Price" ? "price_desc" : "Price";
+
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+            ViewBag.CurrentFilter = searchString;
+
+            var items = from i in db.Products
+                        select i;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                items = items.Where(s => s.ProductName.ToUpper().Contains(searchString.ToUpper())
+                                       || s.ProductCategory.CategoryName.ToUpper().Contains(searchString.ToUpper()));
+            }
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    items = items.OrderByDescending(s => s.ProductName);
+                    break;
+                case "Price":
+                    items = items.OrderBy(s => s.ProductPrice);
+                    break;
+                case "price_desc":
+                    items = items.OrderByDescending(s => s.ProductPrice);
+                    break;
+                default:  // Sort By Name ASC
+                    items = items.OrderBy(s => s.ProductName);
+                    break;
+            }
+
+            int pageSize = 3;
+            int pageNumber = (page ?? 1);
+            return View(items.ToPagedList(pageNumber, pageSize));
+        }
+
+
+        // GET: Products/Details/5
+        public async Task<ActionResult> Details(int? id)
             {
                 if (id == null)
                 {

@@ -14,7 +14,9 @@ namespace Paven.Models
         [Key]
         public int DeliveryId { get; set; }
 
-        public int SaleId { get; set; }        
+        public int SaleId { get; set; }
+
+        public double DeliveryFee { get; set; }
 
         public string CurrentLocation { get; set; }
 
