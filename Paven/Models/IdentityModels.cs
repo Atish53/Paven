@@ -16,9 +16,8 @@ namespace Paven.Models
         public string State { get; set; }
         public string PostalCode { get; set; }
         public string Country { get; set; }
-        public string Phone { get; set; }
-        public string Points { get; set; }
-
+        public string PhoneNumber { get; set; }
+        
         public virtual List<SaleDetail> SaleDetails { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
@@ -26,6 +25,15 @@ namespace Paven.Models
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
             var userIdentity = await manager.CreateIdentityAsync(this, DefaultAuthenticationTypes.ApplicationCookie);
             // Add custom user claims here
+
+            userIdentity.AddClaim(new Claim("Name", Name));            
+            userIdentity.AddClaim(new Claim("Address", Address));
+            userIdentity.AddClaim(new Claim("City", City));
+            userIdentity.AddClaim(new Claim("State", State));
+            userIdentity.AddClaim(new Claim("PostalCode", PostalCode));
+            userIdentity.AddClaim(new Claim("Country", Country));
+            userIdentity.AddClaim(new Claim("Phone", PhoneNumber));
+            
             return userIdentity;
         }
     }
