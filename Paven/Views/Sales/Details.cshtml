@@ -1,0 +1,136 @@
+﻿@model Paven.Models.Sale
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Sale</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SaleDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SaleDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustomerName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.City)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.City)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.State)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.State)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PostalCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PostalCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Country)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Country)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhoneNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SaleTotal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SaleTotal)
+        </dd>
+
+    </dl>
+
+    <h2 class="text-center text-success">Map: </h2>
+    <iframe width="800"
+            height="480"
+            frameborder="0" style="position : relative; left : 15%;"
+            src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyBNcE7mezvGDziXJG3p8wvchw5SSZMnUiQ&origin='@ViewBag.Delivery'&destination='@Model.Address'&avoid=tolls|highways" allowfullscreen>
+    </iframe>
+    <br />
+    <br />
+
+    <!-- Modal -->
+    <div class="modal fade" id="@Model.SaleId" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title text-center">Confirm Delivery For: @Model.CustomerName</h4>
+                </div>
+                <div class="modal-body">
+                    <p class="text-info text-center text-capitalize">Address:</p>
+                    <p class="text-center">@Model.Address</p>
+                    <p class="text-danger text-center text-capitalize">Total:</p>
+                    <p class="text-center">@Model.SaleTotal</p>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" onclick="location.href='@Url.Action("Delivered", "Sales", new { id = Model.SaleId })'">Confirm Delivery</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<p>
+    <a href="@Url.Action(actionName: "PurchaseHistory", controllerName: "Manage")" class="btn btn-success"><i class="fa fa-shopping-cart"></i>Return To Purchase History</a>
+    @if (User.IsInRole("Driver"))
+    {
+        <a href="#" class="btn btn-success" data-toggle="modal" data-target="#@Model.SaleId"><i class="fa fa-shopping-cart"></i>Confirm Delivery</a>
+    }
+</p>

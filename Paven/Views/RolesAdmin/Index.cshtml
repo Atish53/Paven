@@ -1,13 +1,16 @@
 ﻿@model IEnumerable<Microsoft.AspNet.Identity.EntityFramework.IdentityRole>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Manage Roles";
 }
 
-<h2>Index</h2>
+<h2 class="text-center text-danger">Manage Roles</h2>
+<hr />
+<h3 class="text-center text-warning">Create Or Manage User Roles Here</h3>
+<hr />
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New Role", "Create")
 </p>
 <table class="table">
     <tr>
@@ -26,9 +29,8 @@
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                @Html.ActionLink("Edit Role", "Edit", new { id = item.Id }) |                
+                @Html.ActionLink("Delete Role", "Delete", new { id = item.Id })
             </td>
         </tr>
     }

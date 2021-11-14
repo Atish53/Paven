@@ -16,6 +16,9 @@ namespace Paven.Controllers
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
+        private ApplicationDbContext db = new ApplicationDbContext();
+
+
         public ManageController()
         {
         }
@@ -297,6 +300,38 @@ namespace Paven.Controllers
                 CurrentLogins = userLogins,
                 OtherLogins = otherLogins
             });
+        }
+
+        // GET: 
+        [Authorize]
+        public ViewResult PurchaseHistory(string sortOrder, string searchString)
+        {
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
+            var students = from s in db.Sales
+                           select s;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                students = students.Where(s => s.CustomerName.Contains(searchString)
+                                       || s.CustomerName.Contains(searchString));
+            }
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    students = students.OrderByDescending(s => s.CustomerName);
+                    break;
+                case "Date":
+                    students = students.OrderBy(s => s.SaleDate);
+                    break;
+                case "date_desc":
+                    students = students.OrderByDescending(s => s.SaleDate);
+                    break;
+                default:
+                    students = students.OrderBy(s => s.SaleDate);
+                    break;
+            }
+
+            return View(students.ToList());
         }
 
         //
