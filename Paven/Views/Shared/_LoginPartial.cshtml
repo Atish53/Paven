@@ -30,9 +30,19 @@
     {
         <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Driver Functions<b class="caret"></b></a>
-            <ul class="dropdown-menu">                
+            <ul class="dropdown-menu">
                 <li class="dropdown-header">Deliver Order</li>
-                <li>@Html.ActionLink("Deliver Order", "Index", "Sales")</li>               
+                <li>@Html.ActionLink("Deliver Order", "Index", "Sales")</li>
+            </ul>
+        </li>
+    }
+    else if (Request.IsAuthenticated)
+    {
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Your Account<b class="caret"></b></a>
+            <ul class="dropdown-menu">
+                <li class="dropdown-header">View Purchase History</li>
+                <li>@Html.ActionLink("Purchase History", "PurchaseHistory", "Manage")</li>
             </ul>
         </li>
     }

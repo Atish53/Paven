@@ -4,11 +4,11 @@
 <link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 
 @{
-    ViewBag.Title = "Home";
+    ViewBag.Title = "Electronics";
 }
 
-<h2 class="text-center text-info" >Our Products</h2>
- 
+<h2 class="text-center text-info">All Electronic Products</h2>
+
 <style>
     .card {
         box-shadow: 0px 1px 5px #555;
@@ -106,9 +106,9 @@
 <!-- product grid of three 4x5 images + heading and price -->
 
 <div class="product-grid">
-     
+
     <section class="card-container">
-        @foreach (var item in Model)
+        @foreach (var item in Model.Where(x => x.ProductCategoryId == 3))
         {
             <article class="card">
                 <header class="card__title">
@@ -130,7 +130,7 @@
                 }
             </article>
         }
-        </section>    
+    </section>
 </div>
 
 

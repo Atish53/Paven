@@ -8,6 +8,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Paven.Models;
+using System.Net.Mail;
 
 namespace Paven.Controllers
 {
@@ -66,6 +67,30 @@ namespace Paven.Controllers
             delivery.DeliveryDate = DateTime.Now.ToString();
             delivery.CurrentLocation = sale.Address;
             delivery.isDelivered = true;           
+            
+
+            //Successful Delivery...
+            MailMessage mail = new MailMessage();
+            string emailTo = sale.Email;
+            MailAddress from = new MailAddress("africanmagicsystem@gmail.com");
+            mail.From = from;
+            mail.Subject = "Successful Delivery For Order Number #" + sale.SaleId;
+            mail.Body = "Dear " + sale.CustomerName + ", your order number #" + sale.SaleId + " has been delivered successfully.";
+            mail.To.Add(emailTo);            
+
+            mail.IsBodyHtml = true;
+            SmtpClient smtp = new SmtpClient();
+            smtp.Host = "smtp.gmail.com";
+            smtp.EnableSsl = true;
+            NetworkCredential networkCredential = new NetworkCredential("africanmagicsystem@gmail.com", "zbpabilmryequenp");
+            smtp.UseDefaultCredentials = true;
+            smtp.Credentials = networkCredential;
+            smtp.Port = 587;
+            smtp.Send(mail);
+            //Clean-up.           
+            //Dispose of email.
+            mail.Dispose();
+
             await db.SaveChangesAsync();
             return RedirectToAction("Details" + "/" + id);
         }
@@ -74,6 +99,7 @@ namespace Paven.Controllers
         public async Task<ActionResult> Details(int? id)
         {
             int DelId = 0;
+            int SaleId = 0;
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -84,9 +110,16 @@ namespace Paven.Controllers
                 return HttpNotFound();
             }
 
+            var productList = from db in db.SaleDetails
+                              where db.SaleId == id
+                              select db.Product;
+            
+
             var deliverys = from db in db.Deliveries
                             where db.SaleId == id
                             select db;
+
+            ViewBag.SaleDetails = productList;
 
             foreach (var item in deliverys)
             {

@@ -79,22 +79,29 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.PhoneNumber)
+            @Html.Label("Total Amount For Sale:")
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.PhoneNumber)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.SaleTotal)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.SaleTotal)
+            &#82;@Html.DisplayFor(model => model.SaleTotal)
         </dd>
 
     </dl>
+
+    <hr />
+    <h3 class="text-center text-info">Products:</h3>
+    
+    @foreach (var item in ViewBag.SaleDetails)
+    {
+        <ul>
+            <li>
+                @item.ProductName - <strong>&#82;@item.ProductPrice</strong>
+            </li>
+        </ul>
+    }
+
+    <hr/>
+    
 
     <h2 class="text-center text-success">Map: </h2>
     <iframe width="800"
