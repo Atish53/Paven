@@ -20,7 +20,7 @@ namespace Paven.Controllers
         }
                 
         [Authorize]
-        public async Task<ActionResult> Payment() //Event Booking - id is the Event Id... Booking is stored to the EventBookings Table
+        public async Task<ActionResult> Payment() //The Method That Handles All Transactions
         {
             //Variables Required For Tables
             double deliveryFee = 0;
@@ -31,7 +31,7 @@ namespace Paven.Controllers
 
             //Create New Sale
             Sale sale = new Sale();
-            sale.SaleDate = DateTime.Now.Date.ToString();           
+            sale.SaleDate = DateTime.Now.ToString();           
 
             
             numProducts = cart.GetCount();
@@ -88,7 +88,7 @@ namespace Paven.Controllers
             {
                 SaleId = sale.SaleId,
                 DeliveryFee = deliveryFee,
-                CurrentLocation = "95 Monty Naicker Rd, Durban Central, Durban, 4001, South Africa",
+                CurrentLocation = "394 Smith Street, Durban, 4001",
                 isDelivered = false
             };
             dB.Deliveries.Add(delivery);

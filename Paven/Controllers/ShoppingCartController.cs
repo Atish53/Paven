@@ -25,6 +25,9 @@ namespace Paven.Controllers
                 CartItems = cart.GetCartItems(),
                 CartTotal = cart.GetTotal()
             };
+
+            ViewBag.TotalCost = cart.GetTotal() + cart.GetDeliveryFee();
+            ViewBag.ShippingCost = cart.GetDeliveryFee();
             // Return the view
             return View(viewModel);
         }

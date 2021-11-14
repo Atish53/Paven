@@ -20,6 +20,8 @@ namespace Paven.Models
 
         public string CurrentLocation { get; set; }
 
+        public string DeliveryDate { get; set; }
+
         public bool isDelivered { get; set; }
 
         public virtual Sale sale { get; set; }

@@ -141,7 +141,7 @@ namespace Paven.Models
                               where cartItems.CartId == ShoppingCartId
                               select (int?)cartItems.Count *
                               cartItems.Product.ProductPrice).Sum();
-
+            
             return total ?? double.NaN;
         }
 
@@ -150,6 +150,30 @@ namespace Paven.Models
         {
             return dbContext.Carts.Where(
                 cart => cart.CartId == ShoppingCartId).ToList();
+        }
+
+        //Get Cart Items
+        public double GetDeliveryFee()
+        {
+            double deliveryFee = 0;
+            int numProducts = 0;
+
+            numProducts = GetCount();
+
+            if (numProducts == 1)
+            {
+                deliveryFee = 60;
+            }
+            else if (numProducts <= 3)
+            {
+                deliveryFee = 80;
+            }
+            else
+            {
+                deliveryFee = 100;
+            }
+
+            return deliveryFee;
         }
 
         //Cart Finalize

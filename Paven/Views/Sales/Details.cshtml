@@ -1,13 +1,17 @@
 ﻿@model Paven.Models.Sale
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Order Details";
 }
 
-<h2>Details</h2>
+<h2 class="text-center text-info">Details Of Your Order Number #@Model.SaleId</h2>
+
+@if (ViewBag.Date != null)
+{
+    <h1 class="text-center text-warning">Your Order Has Been Successfully Delivered on @ViewBag.Date.</h1>
+}
 
 <div>
-    <h4>Sale</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -131,6 +135,6 @@
     <a href="@Url.Action(actionName: "PurchaseHistory", controllerName: "Manage")" class="btn btn-success"><i class="fa fa-shopping-cart"></i>Return To Purchase History</a>
     @if (User.IsInRole("Driver"))
     {
-        <a href="#" class="btn btn-success" data-toggle="modal" data-target="#@Model.SaleId"><i class="fa fa-shopping-cart"></i>Confirm Delivery</a>
+        <a href="#" class="btn btn-info" data-toggle="modal" data-target="#@Model.SaleId"><i class="fa fa-shopping-cart"></i>Confirm Delivery</a>
     }
 </p>

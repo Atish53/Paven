@@ -205,6 +205,10 @@
     <Compile Include="Migrations\202111132303010_DelFee.Designer.cs">
       <DependentUpon>202111132303010_DelFee.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202111141042071_DelDate.cs" />
+    <Compile Include="Migrations\202111141042071_DelDate.Designer.cs">
+      <DependentUpon>202111141042071_DelDate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AdministratorViewModel.cs" />
@@ -233,6 +237,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\C1.jpg" />
+    <Content Include="Images\C2.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
@@ -337,6 +343,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202111132303010_DelFee.resx">
       <DependentUpon>202111132303010_DelFee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111141042071_DelDate.resx">
+      <DependentUpon>202111141042071_DelDate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

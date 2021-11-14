@@ -63,6 +63,7 @@ namespace Paven.Controllers
 
             Delivery delivery = await db.Deliveries.FindAsync(DelId);
 
+            delivery.DeliveryDate = DateTime.Now.ToString();
             delivery.CurrentLocation = sale.Address;
             delivery.isDelivered = true;           
             await db.SaveChangesAsync();
@@ -93,7 +94,8 @@ namespace Paven.Controllers
             }
 
             Delivery delivery = await db.Deliveries.FindAsync(DelId);
-            ViewBag.Delivery = delivery.CurrentLocation;
+            ViewBag.Date = delivery.DeliveryDate;
+            ViewBag.Delivery = delivery.CurrentLocation;            
 
             return View(sale);
         }

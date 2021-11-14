@@ -29,7 +29,7 @@
         });
     });
 </script>
-<h3>
+<h3 class="text-center text-success">
     <em>Review</em> your cart:
 </h3>
 
@@ -49,13 +49,13 @@
                     <thead>
                         <tr>
                             <th>
-                                Product Name
+                                Product:
                             </th>
                             <th>
-                                Price
+                                Price:
                             </th>
                             <th>
-                                Quantity
+                                Quantity:
                             </th>
                             <th></th>
                         </tr>
@@ -67,7 +67,7 @@
                                 @Html.ActionLink(item.Product.ProductName, "Details", "Products", new { id = item.ProductId }, null)
                             </td>
                             <td>
-                                @item.Product.ProductPrice
+                                &#82;@item.Product.ProductPrice
                             </td>
                             <td id="item-count-@item.ProductId">
                                 @item.Count
@@ -88,13 +88,34 @@
                         <td></td>
                         <td></td>
                         <td id="cart-total">
-                            @Model.CartTotal
+                            &#82;@Model.CartTotal
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Shipping Fee
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td id="cart-total">
+                            &#82;@ViewBag.ShippingCost
+                        </td>
+                    </tr>
+                    <tr class="success">
+                        <td>
+                            Total Including Shipping
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td id="cart-total">
+                            <strong>&#82;@ViewBag.TotalCost</strong>
                         </td>
                     </tr>
                     <tfoot>Please ensure that all products in cart are correct before checking out.</tfoot>
                 </table>
                 <button type="button" class="btn btn-success btn-sm" onclick="location.href='@Url.Action("Payment", "Checkout")'">
-                    Finalize and Pay R @Model.CartTotal</button>
+                    Confirm and Pay &#82;@ViewBag.TotalCost
+                </button>
             </div>
         </div>
 
