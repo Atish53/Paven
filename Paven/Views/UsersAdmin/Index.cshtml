@@ -1,34 +1,37 @@
 ﻿@model IEnumerable<Paven.Models.ApplicationUser>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Manage User Roles";
 }
 
-<h2>Index</h2>
+<h2 class="text-center text-danger">Manage User Roles</h2>
+<hr />
+<h3 class="text-center text-warning">Assign A Driver Or Admin Here</h3>
+<hr />
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<ul>
+    <li>Driver User: driver@appdev.com & Password: Test123&#64;</li>
+    <li>Test User: test@appdev.com & Password: Test123&#64;</li>
+</ul>
+
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.UserName)
+            @Html.DisplayName("Account Name")
         </th>
         <th>
-
+            @Html.DisplayName("Role")
         </th>
     </tr>
 
-    @foreach (var item in Model)
+    @foreach (var item in Model.Where(x => x.UserName != "admin@appdev.com"))
     {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.UserName)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                @Html.ActionLink("Assign Role", "Edit", new { id = item.Id })
             </td>
         </tr>
     }

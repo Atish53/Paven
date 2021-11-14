@@ -1,4 +1,5 @@
 ﻿@using Microsoft.AspNet.Identity
+@using Paven.Models
 @if (Request.IsAuthenticated)
 {
     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
@@ -8,7 +9,7 @@
 <ul class="nav navbar-nav navbar-right">
     <li class="active">@{Html.RenderAction("CartSummary", "ShoppingCart");}</li>
     <li>
-        @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+        @Html.ActionLink("Hello " + User.Identity.GetName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
     </li>
     @if (Request.IsAuthenticated && User.IsInRole("Admin"))
     {
@@ -17,6 +18,11 @@
             <ul class="dropdown-menu">
                 <li>@Html.ActionLink("Manage Products", "Index", "Products")</li>
                 <li>@Html.ActionLink("Manage Product Categories", "Index", "ProductCategories")</li>
+                <li class="divider"></li>
+                <li class="dropdown-header">Manage Users & Roles</li>
+                <li>@Html.ActionLink("Manage Roles", "Index", "RolesAdmin")</li>
+                <li>@Html.ActionLink("Assign Roles", "Index", "UsersAdmin")</li>
+
             </ul>
         </li>
     }
