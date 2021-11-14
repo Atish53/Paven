@@ -6,9 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 
 namespace Paven.Models
-{
-    public class AdministratorViewModel
-    {
+{   
         public class RoleViewModel
         {
             public string Id { get; set; }
@@ -28,5 +26,5 @@ namespace Paven.Models
 
             public IEnumerable<SelectListItem> RolesList { get; set; }
         }
-    }
+    
 }

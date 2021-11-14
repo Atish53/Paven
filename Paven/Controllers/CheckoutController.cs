@@ -19,6 +19,7 @@ namespace Paven.Controllers
             return View();
         }
                 
+        [Authorize]
         public async Task<ActionResult> Payment() //Event Booking - id is the Event Id... Booking is stored to the EventBookings Table
         {
             //Variables Required For Tables

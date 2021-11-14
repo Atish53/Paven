@@ -8,10 +8,12 @@ using System.Web.Mvc;
 
 namespace Paven.Controllers
 {
+    [Authorize]
     public class ShoppingCartController : Controller
     {
         ApplicationDbContext dB = new ApplicationDbContext();
 
+        
         // GET: ShoppingCart
         public ActionResult Index()
         {
@@ -27,7 +29,7 @@ namespace Paven.Controllers
             return View(viewModel);
         }
 
-        //Add To Cart
+        //Add To Cart       
         [HttpPost]
         public ActionResult AddToCart(int id)
         {
