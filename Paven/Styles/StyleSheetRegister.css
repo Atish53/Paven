@@ -1,0 +1,14 @@
+﻿body {
+    background-image: url('../Images/pink-roses-brown-wooden-background.jpg');
+    color: white;
+   
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+a {
+    color: white
+}
+
+    a:hover {
+        color: yellow
+    }
