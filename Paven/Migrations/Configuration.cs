@@ -26,11 +26,9 @@ namespace Paven.Migrations
 
             userManager.Create(user, "Admin123@");
 
-            roleManager.Create(new IdentityRole { Name = "Admin" });            
+            roleManager.Create(new IdentityRole { Name = "Admin" });
             roleManager.Create(new IdentityRole { Name = "Driver" });
-            userManager.AddToRole(user.Id, "Admin");
-            */
-
+            userManager.AddToRole(user.Id, "Admin");*/
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data.
         }

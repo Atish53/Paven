@@ -5,9 +5,9 @@
 }
 
 a {
-    color: white
+    color: red
 }
 
     a:hover {
-        color: yellow
+        color: orangered
     }

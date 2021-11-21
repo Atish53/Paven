@@ -4,14 +4,25 @@
     ViewBag.Title = "Create";
 }
 
+
+
 <h2>Create</h2>
+<hr/>
+<ul>
+    <li>Food - 1 </li>
+    <li>Drinks - 2 </li>
+    <li>Electronics - 3 </li>
+    <li>Household - 4 </li>
+
+</ul>
+<hr/>
 
 @using (Html.BeginForm(actionName: "Create", controllerName: "Products", routeValues: null, method: FormMethod.Post, htmlAttributes: new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>Product</h4>
+        <h4>Create a Product</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">

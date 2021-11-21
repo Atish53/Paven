@@ -7,13 +7,13 @@ namespace Paven.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class UserExtensions : IMigrationMetadata
+    public sealed partial class NewDB : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(UserExtensions));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(NewDB));
         
         string IMigrationMetadata.Id
         {
-            get { return "202111131609217_UserExtensions"; }
+            get { return "202111211405133_NewDB"; }
         }
         
         string IMigrationMetadata.Source

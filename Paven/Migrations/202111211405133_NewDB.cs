@@ -3,7 +3,7 @@ namespace Paven.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Tables : DbMigration
+    public partial class NewDB : DbMigration
     {
         public override void Up()
         {
@@ -90,7 +90,9 @@ namespace Paven.Migrations
                     {
                         DeliveryId = c.Int(nullable: false, identity: true),
                         SaleId = c.Int(nullable: false),
+                        DeliveryFee = c.Double(nullable: false),
                         CurrentLocation = c.String(),
+                        DeliveryDate = c.String(),
                         isDelivered = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.DeliveryId)
@@ -131,8 +133,7 @@ namespace Paven.Migrations
                         State = c.String(),
                         PostalCode = c.String(),
                         Country = c.String(),
-                        Phone = c.String(),
-                        Points = c.String(),
+                        PhoneNo = c.String(),
                         Email = c.String(maxLength: 256),
                         EmailConfirmed = c.Boolean(nullable: false),
                         PasswordHash = c.String(),

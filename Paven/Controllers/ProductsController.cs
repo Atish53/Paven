@@ -348,6 +348,7 @@ namespace Paven.Controllers
             {
                 if (ModelState.IsValid)
                 {
+                product.ProductImage = product.ProductImage;
                     db.Entry(product).State = EntityState.Modified;
                     await db.SaveChangesAsync();
                     return RedirectToAction("Index");

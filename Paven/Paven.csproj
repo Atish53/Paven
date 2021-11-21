@@ -198,25 +198,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202111131557295_Tables.cs" />
-    <Compile Include="Migrations\202111131557295_Tables.Designer.cs">
-      <DependentUpon>202111131557295_Tables.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111131609217_UserExtensions.cs" />
-    <Compile Include="Migrations\202111131609217_UserExtensions.Designer.cs">
-      <DependentUpon>202111131609217_UserExtensions.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111131713394_Test.cs" />
-    <Compile Include="Migrations\202111131713394_Test.Designer.cs">
-      <DependentUpon>202111131713394_Test.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111132303010_DelFee.cs" />
-    <Compile Include="Migrations\202111132303010_DelFee.Designer.cs">
-      <DependentUpon>202111132303010_DelFee.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111141042071_DelDate.cs" />
-    <Compile Include="Migrations\202111141042071_DelDate.Designer.cs">
-      <DependentUpon>202111141042071_DelDate.cs</DependentUpon>
+    <Compile Include="Migrations\202111211405133_NewDB.cs" />
+    <Compile Include="Migrations\202111211405133_NewDB.Designer.cs">
+      <DependentUpon>202111211405133_NewDB.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -350,20 +334,8 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202111131557295_Tables.resx">
-      <DependentUpon>202111131557295_Tables.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111131609217_UserExtensions.resx">
-      <DependentUpon>202111131609217_UserExtensions.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111131713394_Test.resx">
-      <DependentUpon>202111131713394_Test.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111132303010_DelFee.resx">
-      <DependentUpon>202111132303010_DelFee.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111141042071_DelDate.resx">
-      <DependentUpon>202111141042071_DelDate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202111211405133_NewDB.resx">
+      <DependentUpon>202111211405133_NewDB.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
