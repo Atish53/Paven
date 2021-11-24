@@ -203,6 +203,10 @@
     <Compile Include="Migrations\202111211405133_NewDB.Designer.cs">
       <DependentUpon>202111211405133_NewDB.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202111242125441_Deliveries.cs" />
+    <Compile Include="Migrations\202111242125441_Deliveries.Designer.cs">
+      <DependentUpon>202111242125441_Deliveries.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AdministratorViewModel.cs" />
@@ -340,6 +344,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202111211405133_NewDB.resx">
       <DependentUpon>202111211405133_NewDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111242125441_Deliveries.resx">
+      <DependentUpon>202111242125441_Deliveries.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

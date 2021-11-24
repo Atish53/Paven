@@ -19,7 +19,7 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.ProductCategoryId)
+            <span>Product Category</span>
         </th>
         <th>
             @Html.DisplayNameFor(model => model.ProductName)
@@ -40,7 +40,23 @@
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.ProductCategoryId)
+
+                @if (item.ProductCategoryId == 1)
+                {
+                    <p>Food</p>
+                }
+                else if (item.ProductCategoryId == 2)
+                {
+                    <p>Drinks</p>
+                }
+                else if (item.ProductCategoryId == 3)
+                {
+                    <p>Electronics</p>
+                }
+                else if (item.ProductCategoryId == 4)
+                {
+                    <p>Household</p>
+                }
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.ProductName)

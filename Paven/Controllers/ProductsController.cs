@@ -111,7 +111,7 @@ namespace Paven.Controllers
 
             ViewBag.CurrentFilter = searchString;
 
-            var items = from i in db.Products
+            var items = from i in db.Products.Where(x => x.ProductCategoryId == 1)
                         select i;
             if (!String.IsNullOrEmpty(searchString))
             {
@@ -157,7 +157,7 @@ namespace Paven.Controllers
 
             ViewBag.CurrentFilter = searchString;
 
-            var items = from i in db.Products
+            var items = from i in db.Products.Where(x => x.ProductCategoryId == 2)
                         select i;
             if (!String.IsNullOrEmpty(searchString))
             {
@@ -203,7 +203,7 @@ namespace Paven.Controllers
 
             ViewBag.CurrentFilter = searchString;
 
-            var items = from i in db.Products
+            var items = from i in db.Products.Where(x => x.ProductCategoryId == 4)
                         select i;
             if (!String.IsNullOrEmpty(searchString))
             {
@@ -249,7 +249,7 @@ namespace Paven.Controllers
 
             ViewBag.CurrentFilter = searchString;
 
-            var items = from i in db.Products
+            var items = from i in db.Products.Where(x => x.ProductCategoryId == 3)
                         select i;
             if (!String.IsNullOrEmpty(searchString))
             {

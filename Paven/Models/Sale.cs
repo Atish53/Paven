@@ -30,5 +30,6 @@ namespace Paven.Models
         public double SaleTotal { get; set; }
 
         public List<SaleDetail> SaleDetails { get; set; }
+        public Delivery Delivery { get; set; }
     }
 }
